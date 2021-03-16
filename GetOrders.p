@@ -2,7 +2,8 @@
     File        : GetOrders.p
     Purpose     : Magalu Marketplace
     Syntax      :
-    Description : 
+    Description : List new orders from Magalu Marketplace and store it into temp-table
+                  Listar novos pedidos no marketplace da Magalu e armazenar em temp-table. 
     Author(s)   : Rodrigo Ferreira Reis
     Created     : Mon Jan 18 17:19:53 BRST 2021
     Notes       :
@@ -160,7 +161,8 @@ PROCEDURE save_orders:
              Order.UpdatedDate                     = oOrder:GetCharacter("UpdatedDate")
              Order.MarketplaceName                 = oOrder:GetCharacter("MarketplaceName")              
              Order.StoreName                       = oOrder:GetCharacter("StoreName")
-             Order.UpdatedMarketplaceStatus        = oOrder:GetLogical("UpdatedMarketplaceStatus")                                   Order.InsertedErp = oOrder:GetLogical("InsertedErp")
+             Order.UpdatedMarketplaceStatus        = oOrder:GetLogical("UpdatedMarketplaceStatus")                                   
+             Order.InsertedErp = oOrder:GetLogical("InsertedErp")
              Order.EstimatedDeliveryDate           = oOrder:GetCharacter("EstimatedDeliveryDate")
              Order.CustomerPfCpf                   = oOrder:GetCharacter("CustomerPfCpf")
              Order.ReceiverName                    = oOrder:GetCharacter("ReceiverName")
@@ -218,7 +220,7 @@ PROCEDURE save_orders:
    
       END.
    END.  
-RETURN "OK".
+
 END PROCEDURE.
 
 
