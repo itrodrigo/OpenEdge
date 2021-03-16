@@ -2,7 +2,7 @@
     File        : postSku.p
     Purpose     : Magalu Marketplace
     Syntax      :
-    Description : 
+    Description : This programa creates a new sku
     Author(s)   : Rodrigo Ferreira Reis
     Created     : Mon Jan 18 19:10:06 BRST 2021
     Notes       :
@@ -180,7 +180,7 @@ END PROCEDURE.
 
 
 
-procedure SendPost:
+PROCEDURE SendPost:
 
    objLib = ClientLibraryBuilder:Build():sslVerifyHost(NO):Library.
    objClient = 
@@ -206,10 +206,9 @@ procedure SendPost:
    objClient:Execute(objRequest, objResponse) no-error.
    
    
-   if objResponse:StatusCode <> 201 then
-      message 'Request error:' + string(objResponse:StatusCode) 
-      view-as alert-box.
+   IF objResponse:StatusCode <> 201 THEN
+      MESSAGE 'Request error:' + string(objResponse:StatusCode) 
+      VIEW-AS ALERT-BOX.
    else cast(objResponse:Entity, JsonObject):WriteFile('response.json', true). 
    
-end procedure.
-
+END PROCEDURE.
