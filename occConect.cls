@@ -2,7 +2,7 @@
     File        : connect.cls
     Purpose     : Oracle Commerce Cloud
     Syntax      :
-Description : 
+    Description : 
     Author(s)   : Rodrigo Ferreira Reis | Bruno Ferreira
     Created     : Thu Jul 05 14:35:16 BRST 2021
     Notes       :
@@ -42,7 +42,7 @@ CLASS OCC.CONNECT:
     DEFINE VARIABLE oRequestBody AS LONGCHAR            NO-UNDO.
     DEFINE VARIABLE httpUrl      AS CHARACTER           NO-UNDO.
     DEFINE VARIABLE strJson      AS LONGCHAR            NO-UNDO.
-    DEFINE VARIABLE ambiente     AS CHARACTER           NO-UNDO INITIAL "Desenvolvimento".
+  
 
     METHOD PUBLIC CHARACTER GetToken(): 
       return cToken.
@@ -50,7 +50,7 @@ CLASS OCC.CONNECT:
 
     METHOD PUBLIC VOID login():
 
-      find first occurl where occurl.description = ambiente no-lock no-error.
+    
 
       httpUrl = occurl.url + '/ccadmin/v1/login'.
       oLib = ClientLibraryBuilder
@@ -63,7 +63,7 @@ CLASS OCC.CONNECT:
       FIND FIRST occWebApi NO-LOCK 
            WHERE occWebApi.AppName = "ocx-osf-storefront" NO-ERROR.
        
-      //Gerenciamento de cookies 
+      //Cookies management
       objCookieJar = CookieJarBuilder:Build():CookieJar.
       objCookieJar:ClearSessionCookies().
       oClient      = ClientBuilder:Build()
@@ -97,7 +97,7 @@ CLASS OCC.CONNECT:
              
     METHOD PUBLIC VOID GET(input endpoint as character):
 
-      find first occurl where occurl.description = ambiente no-lock no-error.
+      
 
       // Pass the Bearer  token
       cToken  = 'Bearer ' + STRING(lcToken) .
@@ -125,7 +125,7 @@ CLASS OCC.CONNECT:
                            INPUT id       AS CHARACTER,
                            INPUT jsonReq  AS JsonObject):
 
-        find first occurl where occurl.description = ambiente no-lock no-error.
+        
 
         // Pass the Bearer  token
         cToken  = 'Bearer ' + STRING(lcToken) .
@@ -152,7 +152,7 @@ CLASS OCC.CONNECT:
     METHOD PUBLIC VOID POST(INPUT endpoint AS CHARACTER,
                            INPUT jsonReq  AS JsonObject):
 
-        find first occurl where occurl.description = ambiente no-lock no-error.
+        
 
         // Pass the Bearer  token
         cToken  = 'Bearer ' + STRING(lcToken).
@@ -179,7 +179,7 @@ CLASS OCC.CONNECT:
     METHOD PUBLIC VOID DELETE(INPUT endpoint AS CHARACTER,
                               INPUT id       AS CHARACTER):
 
-        find first occurl where occurl.description = ambiente no-lock no-error.
+       
 
         // Pass the Bearer  token
         cToken  = 'Bearer ' + STRING(lcToken).
