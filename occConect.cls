@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------
-    File        : connect.cls
+    File        : occConnect.cls
     Purpose     : Oracle Commerce Cloud
     Syntax      :
     Description : 
