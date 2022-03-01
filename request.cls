@@ -2,7 +2,7 @@
     File        : requests.cls
     Purpose     : Oracle Commerce Cloud
     Syntax      :
-    Description : Send a request to Oracle Commerce Cloud
+    Description : Send a request to Oracle Cloud Commerce
     Author(s)   : Rodrigo Ferreira Reis
     Created     : Thu Jun 30 12:49:15 BRST 2021
     Notes       :
