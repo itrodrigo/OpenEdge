@@ -9,8 +9,7 @@ Notes       : You need to declare all necessary usings.
 ----------------------------------------------------------------------*/
 
 CLASS CONNECT:
-  
-METHOD PUBLIC IHttpResponse upLoadFile(INPUT fileName AS CHARACTER):
+  METHOD PUBLIC IHttpResponse upLoadFile(INPUT fileName AS CHARACTER):
         DEFINE VARIABLE memptrCSV       AS MEMPTR               NO-UNDO.
         DEFINE VARIABLE memptrCSVObject AS OpenEdge.Core.Memptr NO-UNDO. 
         DEFINE VARIABLE oRequestBody    AS MultipartEntity      NO-UNDO.
@@ -24,6 +23,7 @@ METHOD PUBLIC IHttpResponse upLoadFile(INPUT fileName AS CHARACTER):
         
         
         shortFileName = entry(num-entries(fileName, "/"), fileName, "/").
+      
         // Pass the Bearer  token here to Authorization
         
         httpUrl = 'yourcommerceUrl/files'.
@@ -67,14 +67,14 @@ METHOD PUBLIC IHttpResponse upLoadFile(INPUT fileName AS CHARACTER):
                              :WithData(oRequestBody, 'multipart/form-data')
                              :Request.
 
-               oResp = ClientBuilder:Build() 
-                           :UsingLibrary(oLib) 
-                           :SetNumRetries(3)
-                           :Client 
-                           :Execute(oReq).
+        oResp = ClientBuilder:Build() 
+                             :UsingLibrary(oLib) 
+                             :SetNumRetries(3)
+                             :Client 
+                             :Execute(oReq).
         
         
         RETURN oResp.
        
     END METHOD.
- END CLASS.
+  END CLASS.
