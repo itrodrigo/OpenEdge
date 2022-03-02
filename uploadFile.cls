@@ -2,13 +2,13 @@
 File        : uploadFile.cls
 Purpose     : Oracle Commerce Cloud
 Syntax      :
-Description : 
+Description : This class uploads a file to Oracle Cloud Commerce Area.
 Author(s)   : Rodrigo Ferreira Reis 
 Created     : Thu Mar 01 18:18:29 BRST 2022
 Notes       : You need to declare all necessary usings. 
 ----------------------------------------------------------------------*/
 
-CLASS CONNECT:
+CLASS COMMERCE:
   METHOD PUBLIC IHttpResponse upLoadFile(INPUT fileName AS CHARACTER):
         DEFINE VARIABLE memptrCSV       AS MEMPTR               NO-UNDO.
         DEFINE VARIABLE memptrCSVObject AS OpenEdge.Core.Memptr NO-UNDO. 
